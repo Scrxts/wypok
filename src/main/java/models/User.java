@@ -11,6 +11,9 @@ public class User implements Serializable {
     private String email;
     private Boolean active;
 
+    public User() {
+    }
+
     public User(User user) {
     }
 
