@@ -1,0 +1,16 @@
+<component name="ArtifactManager">
+  <artifact type="exploded-war" name="wypok:war exploded">
+    <output-path>$PROJECT_DIR$/out/artifacts/wypok_war_exploded</output-path>
+    <root id="root">
+      <element id="directory" name="WEB-INF">
+        <element id="directory" name="classes">
+          <element id="module-output" name="wypok" />
+        </element>
+      </element>
+      <element id="library" level="project" name="Maven: mysql:mysql-connector-java:8.0.20" />
+      <element id="library" level="project" name="Maven: com.google.protobuf:protobuf-java:3.6.1" />
+      <element id="library" level="project" name="Maven: javax.persistence:persistence-api:1.0.2" />
+      <element id="javaee-facet-resources" facet="wypok/web/Web" />
+    </root>
+  </artifact>
+</component>
