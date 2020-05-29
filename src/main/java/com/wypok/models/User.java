@@ -1,4 +1,4 @@
-package models;
+package com.wypok.models;
 
 import java.io.Serializable;
 import java.util.Objects;

@@ -1,8 +1,10 @@
-package models;
+package com.wypok.models;
 
+import java.io.Serializable;
 import java.sql.Timestamp;
 
-public class Discovery {
+public class Discovery implements Serializable {
+
     private long id;
     private String name;
     private String description;
