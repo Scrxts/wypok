@@ -1,0 +1,9 @@
+<component name="libraryTable">
+  <library name="jquery-migrate-3.3.0" type="kotlin.js">
+    <CLASSES>
+      <root url="file://$PROJECT_DIR$/lib/jquery-migrate-3.3.0.js" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>
