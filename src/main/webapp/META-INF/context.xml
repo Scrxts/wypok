@@ -5,6 +5,6 @@
             maxActive="100" maxIdle="30" maxWait="10000"
             url="jdbc:mysql://localhost:3306/weekop?serverTimezone=UTC"
             driverClassName="com.mysql.jdbc.Driver"
-            username="root" password="qlimax"
+            username="root" password="password"
     />
 </Context>
