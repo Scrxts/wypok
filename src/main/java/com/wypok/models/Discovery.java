@@ -3,8 +3,7 @@ package com.wypok.models;
 import java.io.Serializable;
 import java.sql.Timestamp;
 
-public class Discovery implements Serializable {
-
+public class Discovery  {
     private long id;
     private String name;
     private String description;

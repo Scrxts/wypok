@@ -6,8 +6,8 @@
     <title>Weekop</title>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="${pageContext.request.contextPath}bootstrap/css/bootstrap.min.css" type="text/css" rel="stylesheet">
-    <link href="${pageContext.request.contextPath}bootstrap/css/styles.css" type="text/css" rel="stylesheet">
+    <link href="${pageContext.request.contextPath}resources/bootstrap/css/bootstrap.min.css" type="text/css" rel="stylesheet">
+    <link href="${pageContext.request.contextPath}resources/bootstrap/css/styles.css" type="text/css" rel="stylesheet">
 </head>
 
 <body>
@@ -23,8 +23,8 @@
         <div class="collapse navbar-collapse navHeaderCollapse">
             <ul class="nav navbar-nav navbar-right">
                 <li class="active"><a href="#">Główna</a></li>
-                <li><a href="#">Dodaj</a></li>
-                <li><a href="#">Zaloguj się</a></li>
+                <li><a href="new.jsp">Dodaj</a></li>
+                <li><a href="login.jsp">Zaloguj się</a></li>
             </ul>
         </div>
 
@@ -92,12 +92,12 @@
 
 <footer class="footer">
     <div class="container">
-        <p class="navbar-text">Weekop - developed by <a href="http://javastart.pl">JavaStart.pl</a></p>
+        <p class="navbar-text">Weekop - developed by Łukasz Tota & Mateusz Ochel</p>
     </div>
 </footer>
 
 <script src="http://code.jquery.com/jquery-1.11.2.min.js"></script>
 <script src="http://code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
-<script src="bootstrap/js/bootstrap.js"></script>
+<script src="resources/bootstrap/js/bootstrap.js"></script>
 </body>
 </html>
