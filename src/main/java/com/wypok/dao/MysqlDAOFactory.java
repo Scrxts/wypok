@@ -4,16 +4,17 @@ public class MysqlDAOFactory extends DAOFactory {
 
     @Override
     public DiscoveryDAO getDiscoveryDAO() {
-        return null;
+        return new DiscoveryDAOImpl();
     }
 
     @Override
     public UserDAO getUserDAO() {
-        return null;
+        return new UserDAOImpl();
     }
 
     @Override
     public VoteDAO getVoteDAO() {
-        return null;
+        return new VoteDAOImpl();
     }
+
 }
