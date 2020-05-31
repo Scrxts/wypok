@@ -4,12 +4,7 @@ import com.wypok.models.Vote;
 
 import java.util.List;
 
-public class VoteDaoImpl implements VoteDAO {
-
-    @Override
-    public Vote getVoteByUserIdDiscoveryId(long userid, long discoveryid) {
-        return null;
-    }
+public class VoteDAOImpl implements VoteDAO {
 
     @Override
     public Vote create(Vote newObject) {
@@ -33,6 +28,11 @@ public class VoteDaoImpl implements VoteDAO {
 
     @Override
     public List<Vote> getAll() {
+        return null;
+    }
+
+    @Override
+    public Vote getVoteByUserIdDiscoveryId(long userId, long discoveryId) {
         return null;
     }
 }

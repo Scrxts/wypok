@@ -12,18 +12,18 @@ public abstract class DAOFactory {
 
     public abstract VoteDAO getVoteDAO();
 
-    public static DAOFactory getDAOFactory(){
+    public static DAOFactory getDAOFactory() {
         DAOFactory factory = null;
-        try{
+        try {
             factory = getDAOFactory(MYSQL_DAO_FACTORY);
-        } catch (NoSuchDbTypeException e){
+        } catch (NoSuchDbTypeException e) {
             e.printStackTrace();
         }
         return factory;
     }
 
-    private static DAOFactory getDAOFactory(int type) throws NoSuchDbTypeException{
-        switch (type){
+    private static DAOFactory getDAOFactory(int type) throws NoSuchDbTypeException {
+        switch (type) {
             case MYSQL_DAO_FACTORY:
                 return new MysqlDAOFactory();
             default:

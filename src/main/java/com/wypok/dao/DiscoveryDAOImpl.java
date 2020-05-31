@@ -4,7 +4,7 @@ import com.wypok.models.Discovery;
 
 import java.util.List;
 
-public class DiscoveryDaoImpl implements DiscoveryDAO {
+public class DiscoveryDAOImpl implements DiscoveryDAO {
 
     @Override
     public Discovery create(Discovery newObject) {
@@ -30,4 +30,5 @@ public class DiscoveryDaoImpl implements DiscoveryDAO {
     public List<Discovery> getAll() {
         return null;
     }
+
 }

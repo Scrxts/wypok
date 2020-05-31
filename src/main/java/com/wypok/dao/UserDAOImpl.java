@@ -10,14 +10,14 @@ import org.springframework.jdbc.support.KeyHolder;
 
 import java.util.List;
 
-public class UserDaoImpl implements UserDAO {
+public class UserDAOImpl implements UserDAO {
 
     private static final String CREATE_USER =
             "INSERT INTO user(username, email, password, is_active) VALUES(:username, :email, :password, :active);";
 
     private NamedParameterJdbcTemplate template;
 
-    public UserDaoImpl() {
+    public UserDAOImpl() {
         template = new NamedParameterJdbcTemplate(ConnectionProvider.getDataSource());
     }
 
