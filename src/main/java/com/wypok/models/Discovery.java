@@ -1,6 +1,5 @@
 package com.wypok.models;
 
-import java.io.Serializable;
 import java.sql.Timestamp;
 
 public class Discovery  {
