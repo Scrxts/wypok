@@ -3,6 +3,7 @@ package com.wypok.controller;
 import com.wypok.models.Discovery;
 import com.wypok.models.User;
 import com.wypok.models.VoteType;
+import com.wypok.service.VoteService;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -28,6 +29,7 @@ public class VoteController extends HttpServlet {
     }
 
     private void updateVote(long userId, long discoveryId, VoteType voteType) {
+
     }
 
     private Discovery addDiscoveryVote(Discovery discovery, VoteType voteType) {
@@ -36,6 +38,16 @@ public class VoteController extends HttpServlet {
             discoveryCopy.setUpVote(discoveryCopy.getUpVote() + 1);
         } else if(voteType == VoteType.VOTE_DOWN) {
             discoveryCopy.setDownVote(discoveryCopy.getDownVote() + 1);
+        }
+        return discoveryCopy;
+    }
+
+    private Discovery removeDiscoveryVote(Discovery discovery, VoteType voteType) {
+        Discovery discoveryCopy = new Discovery(discovery);
+        if(voteType == VoteType.VOTE_UP) {
+            discoveryCopy.setUpVote(discoveryCopy.getUpVote() - 1);
+        } else if(voteType == VoteType.VOTE_DOWN) {
+            discoveryCopy.setDownVote(discoveryCopy.getDownVote() - 1);
         }
         return discoveryCopy;
     }
