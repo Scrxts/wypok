@@ -1,5 +1,6 @@
 package com.wypok.controller;
 
+import com.wypok.models.Discovery;
 import com.wypok.models.User;
 import com.wypok.models.VoteType;
 
@@ -27,5 +28,15 @@ public class VoteController extends HttpServlet {
     }
 
     private void updateVote(long userId, long discoveryId, VoteType voteType) {
+    }
+
+    private Discovery addDiscoveryVote(Discovery discovery, VoteType voteType) {
+        Discovery discoveryCopy = new Discovery(discovery);
+        if(voteType == VoteType.VOTE_UP) {
+            discoveryCopy.setUpVote(discoveryCopy.getUpVote() + 1);
+        } else if(voteType == VoteType.VOTE_DOWN) {
+            discoveryCopy.setDownVote(discoveryCopy.getDownVote() + 1);
+        }
+        return discoveryCopy;
     }
 }
