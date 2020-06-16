@@ -3,6 +3,7 @@ package com.wypok.dao;
 import com.wypok.models.Vote;
 import com.wypok.models.VoteType;
 import com.wypok.util.ConnectionProvider;
+import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.jdbc.core.RowMapper;
 import org.springframework.jdbc.core.namedparam.MapSqlParameterSource;
 import org.springframework.jdbc.core.namedparam.NamedParameterJdbcTemplate;
@@ -43,7 +44,7 @@ public class VoteDAOImpl implements VoteDAO {
         KeyHolder holder = new GeneratedKeyHolder();
         SqlParameterSource paramSource = new MapSqlParameterSource(paramMap);
         int update = template.update(CREATE_VOTE, paramSource, holder);
-        if(update > 0) {
+        if (update > 0) {
             voteCopy.setId(holder.getKey().longValue());
         }
         return voteCopy;
@@ -65,7 +66,7 @@ public class VoteDAOImpl implements VoteDAO {
         paramMap.put("vote_id", vote.getId());
         SqlParameterSource paramSource = new MapSqlParameterSource(paramMap);
         int update = template.update(UPDATE_VOTE, paramSource);
-        if(update > 0) {
+        if (update > 0) {
             result = true;
         }
         return result;
@@ -83,7 +84,17 @@ public class VoteDAOImpl implements VoteDAO {
 
     @Override
     public Vote getVoteByUserIdDiscoveryId(long userId, long discoveryId) {
-        return null;
+        Map<String, Object> paramMap = new HashMap<>();
+        paramMap.put("user_id", userId);
+        paramMap.put("discovery_id", discoveryId);
+        SqlParameterSource paramSource = new MapSqlParameterSource(paramMap);
+        Vote vote = null;
+        try {
+            vote = template.queryForObject(READ_VOTE_BY_DISCOVERY_USE_IDS, paramSource, new VoteRowMapper());
+        } catch (EmptyResultDataAccessException e) {
+            //vote not found
+        }
+        return vote;
     }
 }
 
