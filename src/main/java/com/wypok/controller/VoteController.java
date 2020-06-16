@@ -52,7 +52,6 @@ public class VoteController extends HttpServlet {
         discoveryService.updateDiscovery(updatedDiscovery);
     }
 
-
     private Discovery addDiscoveryVote(Discovery discovery, VoteType voteType) {
         Discovery discoveryCopy = new Discovery(discovery);
         if(voteType == VoteType.VOTE_UP) {
