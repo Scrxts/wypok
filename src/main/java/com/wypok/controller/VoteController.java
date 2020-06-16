@@ -2,7 +2,9 @@ package com.wypok.controller;
 
 import com.wypok.models.Discovery;
 import com.wypok.models.User;
+import com.wypok.models.Vote;
 import com.wypok.models.VoteType;
+import com.wypok.service.DiscoveryService;
 import com.wypok.service.VoteService;
 
 import javax.servlet.ServletException;
@@ -29,8 +31,27 @@ public class VoteController extends HttpServlet {
     }
 
     private void updateVote(long userId, long discoveryId, VoteType voteType) {
-
+        VoteService voteService = new VoteService();
+        Vote existingVote = voteService.getVoteByDiscoveryUserId(discoveryId, userId);
+        Vote updatedVote = voteService.addOrUpdateVote(discoveryId, userId, voteType);
+        if(existingVote != updatedVote || !updatedVote.equals(existingVote)) {
+            updateDiscovery(discoveryId, existingVote, updatedVote);
+        }
     }
+
+    private void updateDiscovery(long discoveryId, Vote oldVote, Vote newVote) {
+        DiscoveryService discoveryService = new DiscoveryService();
+        Discovery discoveryById = discoveryService.getDiscoveryById(discoveryId);
+        Discovery updatedDiscovery = null;
+        if(oldVote == null && newVote != null) {
+            updatedDiscovery = addDiscoveryVote(discoveryById, newVote.getVoteType());
+        } else if(oldVote != null && newVote != null) {
+            updatedDiscovery = removeDiscoveryVote(discoveryById, oldVote.getVoteType());
+            updatedDiscovery = addDiscoveryVote(updatedDiscovery, newVote.getVoteType());
+        }
+        discoveryService.updateDiscovery(updatedDiscovery);
+    }
+
 
     private Discovery addDiscoveryVote(Discovery discovery, VoteType voteType) {
         Discovery discoveryCopy = new Discovery(discovery);
