@@ -10,6 +10,7 @@ import java.util.Date;
 
 
 public class VoteService {
+
     public Vote addVote(long discoveryId, long userId, VoteType voteType){
         Vote vote = new Vote();
         vote.setDiscoveryId(discoveryId);
