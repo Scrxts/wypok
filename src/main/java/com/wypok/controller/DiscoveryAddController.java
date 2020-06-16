@@ -23,7 +23,7 @@ public class DiscoveryAddController extends HttpServlet {
         if (request.getUserPrincipal() != null){
             DiscoveryService discoveryService = new DiscoveryService();
             discoveryService.addDiscovery(name,description,url,authenticatedUser);
-            response.sendRedirect(request.getContextPath() + "index.jsp");
+            response.sendRedirect(request.getContextPath() + "/");
         } else {
             response.sendError(403);
         }

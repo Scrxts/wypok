@@ -42,7 +42,7 @@ public class DiscoveryDAOImpl implements DiscoveryDAO {
     public Discovery create(Discovery discovery) {
         Discovery resultDiscovery = new Discovery(discovery);
         KeyHolder holder = new GeneratedKeyHolder();
-        Map<String, Object> paramMap = new HashMap<>();
+        Map<String, Object> paramMap = new HashMap<String, Object>();
         paramMap.put("name", discovery.getName());
         paramMap.put("description", discovery.getDescription());
         paramMap.put("url", discovery.getUrl());
@@ -52,7 +52,7 @@ public class DiscoveryDAOImpl implements DiscoveryDAO {
         paramMap.put("down_vote", discovery.getDownVote());
         SqlParameterSource paramSource = new MapSqlParameterSource(paramMap);
         int update = template.update(CREATE_DISCOVERY, paramSource, holder);
-        if (update > 0) {
+        if(update > 0) {
             resultDiscovery.setId(holder.getKey().longValue());
         }
         return resultDiscovery;
@@ -68,18 +68,19 @@ public class DiscoveryDAOImpl implements DiscoveryDAO {
     @Override
     public boolean update(Discovery discovery) {
         boolean result = false;
-        Map<String, Object> paramMap = new HashMap<>();
+        Map<String, Object> paramMap = new HashMap<String, Object>();
         paramMap.put("discovery_id", discovery.getId());
         paramMap.put("name", discovery.getName());
         paramMap.put("description", discovery.getDescription());
         paramMap.put("url", discovery.getUrl());
         paramMap.put("user_id", discovery.getUser().getId());
+        paramMap.put("date", discovery.getTimestamp());
         paramMap.put("up_vote", discovery.getUpVote());
         paramMap.put("down_vote", discovery.getDownVote());
         SqlParameterSource paramSource = new MapSqlParameterSource(paramMap);
         int update = template.update(UPDATE_DISCOVERY, paramSource);
-        if (update > 0) {
-            return true;
+        if(update > 0) {
+            result = true;
         }
         return result;
     }
